@@ -22,14 +22,14 @@ public class Lab3Application {
 
 		//testing cache
 		System.out.println("----Testing Cache---");
-		TimeUnit.SECONDS.sleep(10); //make sure cache is cleared
+		//TimeUnit.SECONDS.sleep(10); //make sure cache is cleared
 		System.out.println("----Not loaded, require query---");
 		ts.testCache();
 		System.out.println("----Already loaded---");
 		ts.testCache();
 		System.out.println("----Already loaded---");
 		ts.testCache();
-		TimeUnit.SECONDS.sleep(10);
+		//TimeUnit.SECONDS.sleep(10);
 		System.out.println("----Not loaded, require query---");
 		ts.testCache();
 

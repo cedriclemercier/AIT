@@ -25,6 +25,7 @@ import java.util.Set;
 public class Employee {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     private Name name;
@@ -65,11 +66,14 @@ public class Employee {
     @Transient
     private String something;
 
-    // When you load employee it will load user (for one to one) by default
-    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "user_id", referencedColumnName = "id")
-    @JsonIgnore
-    @MapsId
+//    // When you load employee it will load user (for one to one) by default
+//    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+//    @JoinColumn(name = "user_id", referencedColumnName = "id")
+//    @JsonIgnore
+//    @MapsId
+//    private User user;
+
+    @OneToOne(mappedBy = "emp", cascade = CascadeType.ALL, orphanRemoval = true)
     private User user;
 
 

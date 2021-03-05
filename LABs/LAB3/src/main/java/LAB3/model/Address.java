@@ -24,7 +24,7 @@ public class Address {
     private AddressId id;
 
     // Loading address will load emp by default
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     private Employee emp;
 
 }

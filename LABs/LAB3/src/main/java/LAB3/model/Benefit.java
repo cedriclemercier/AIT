@@ -28,7 +28,7 @@ public class Benefit {
     private String title;
 
     // When loading benefits, it will not load employees by default
-    @ManyToMany(mappedBy = "benefits")
+    @ManyToMany(mappedBy = "benefits", fetch = FetchType.EAGER)
     // Let the other side create the association table
     // Set has better performance than List in many-to-many
     private Set<Employee> emp;

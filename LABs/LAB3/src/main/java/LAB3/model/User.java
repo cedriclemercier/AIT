@@ -3,6 +3,7 @@ package LAB3.model;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import net.minidev.json.annotate.JsonIgnore;
 import org.apache.tomcat.jni.Local;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -20,7 +21,7 @@ import java.time.LocalDate;
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @Column(nullable = false)
@@ -39,7 +40,14 @@ public class User {
     // ManyToOne: EAGER
     // OneToOne: EAGER
 
-    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+//    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+//    private Employee emp;
+
+    // When you load employee it will load user (for one to one) by default
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "emp_id", referencedColumnName = "id")
+    @JsonIgnore
+    @MapsId
     private Employee emp;
 
     public User(String username, String password, boolean active, String role, Employee emp) {
