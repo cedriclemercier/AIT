@@ -1,0 +1,1 @@
+insert into eligibility (occupation_id) values (1);

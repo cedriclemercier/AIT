@@ -1,0 +1,3 @@
+insert into citizen (bank_account_no, citizen_id, citizen_first_name, citizen_last_name, occupation_id) values (1001, 101, 'Gardner', 'Hodgson', 1);
+insert into citizen (bank_account_no, citizen_id, citizen_first_name, citizen_last_name, occupation_id) values (1002, 102, 'Gary', 'Stokes', 2);
+insert into citizen (bank_account_no, citizen_id, citizen_first_name, citizen_last_name, occupation_id) values (1003, 103, 'Patricia', 'Holden', 3);
