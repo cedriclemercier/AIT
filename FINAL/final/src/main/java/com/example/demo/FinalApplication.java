@@ -23,7 +23,29 @@ public class FinalApplication {
 	public static void main(String[] args) throws IOException, InterruptedException  {
 		SpringApplication.run(FinalApplication.class, args);
 
+
+		// USER 1
 		ExecutorService es = Executors.newFixedThreadPool(2);
+		es.execute(() -> {
+			System.out.println("Updating product 1...");
+			try {
+				get(1, 5);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+
+			System.out.println("Updating product 1 again...");
+			try {
+				get(1, 10);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+
+
+			System.out.println("Updating product 1 again...");
+		});
+
+		// USER 2
 		es.execute(() -> {
 			System.out.println("Updating product 1...");
 			try {
